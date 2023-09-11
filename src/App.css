@@ -1,9 +1,55 @@
-
+/* Color Pallet: #E8FFCE Light Green  */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+:root {
+  --lightgreen-color: #D5FFE4;
+  --lightblue-color: #8BE8E5;
+  --lightpurple-color: #A084E8;
+  --purple-color: #6F61C0;
+  --lightblack-color: rgba(0, 0, 0, 0.596);
+}
 * {
   text-align: center;
   font-family: Helvetica;
 }
+/* ~~~~~~~~~~~~~~~~Navigation~~~~~~~~~~~~~~~~~~ */
+nav{
+  position: sticky;
+  background-color: var(--lightblue-color);
+  background: linear-gradient(45deg, var(--lightblue-color), var(--lightgreen-color));
+  color: var(--lightblack-color);
+}
+.banner{
+  display: grid;
+  grid-template-columns: .25fr 1fr .25fr;
+  align-items: center;
+  z-index: 2;
+}
 
+#navLogo{
+  justify-self: start;
+}
+.banner h1{
+  font-size: 2rem;
+}
+.banner button{
+  color: var(--lightblack-color);
+  font-size: 2.5rem;
+  background-color: inherit;
+  width: 2rem;
+  justify-self: end;
+}
+
+.navOptions{
+  position: absolute;
+  top: 0;
+  
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /*  Laptops and small monitors */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
