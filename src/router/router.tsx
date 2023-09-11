@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import App from "../App";
-import Landing from "../components/Landing";
+import Landing from "../pages/Landing";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App />} >
