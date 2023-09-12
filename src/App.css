@@ -3,6 +3,8 @@
   margin: 0;
   padding: 0;
   border: 0;
+  text-align: center;
+  font-family: Helvetica;
 }
 :root {
   --lightgreen-color: #D5FFE4;
@@ -11,42 +13,54 @@
   --purple-color: #6F61C0;
   --lightblack-color: rgba(0, 0, 0, 0.596);
 }
-* {
-  text-align: center;
-  font-family: Helvetica;
-}
 /* ~~~~~~~~~~~~~~~~Navigation~~~~~~~~~~~~~~~~~~ */
 nav{
-  position: sticky;
-  background-color: var(--lightblue-color);
-  background: linear-gradient(45deg, var(--lightblue-color), var(--lightgreen-color));
-  color: var(--lightblack-color);
-}
-.banner{
-  display: grid;
-  grid-template-columns: .25fr 1fr .25fr;
+  display: flex;
   align-items: center;
-  z-index: 2;
+  justify-content: space-between;
+  background-color: #D5FFE4;
+  background: linear-gradient(275deg, var(--lightgreen-color) 0%, var(--lightblue-color) 100%);
+  box-shadow:  2px 5px 0 rgba(0,0,0,0.16);
+  padding: .5rem 1rem;
 }
 
-#navLogo{
-  justify-self: start;
+#navbar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.banner h1{
-  font-size: 2rem;
+
+#navbar li{
+  list-style: none;
+  padding: 0 1rem;
+  position: relative;
 }
-.banner button{
+#navbar a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: var(--lightblack-color);
-  font-size: 2.5rem;
-  background-color: inherit;
-  width: 2rem;
-  justify-self: end;
+  transition: 0.3s ease-in-out
+}
+#navbar a:hover{
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: .6rem;
+
 }
 
-.navOptions{
-  position: absolute;
-  top: 0;
-  
+.hamburgerIcon {
+  font-size: 2rem;
+  color: var(--lightblack-color);
+}
+.closeIcon{
+  color: var(--lightblack-color);
+  font-size: 1.7rem;
+  font-family:'Lucida Sans';
+}
+
+.hidden{
+  display: none
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
