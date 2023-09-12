@@ -14,17 +14,19 @@ function Navigation(props: any){
         <Link to={"/"}>
             <img src={checkLogo} alt="" className="logo"/>
         </Link>
+        <h1>Speedy Check-In</h1>
         <div>
-            <ul id="navbar">
+            <ul id="navbar" className={`${isEnabled ? "onScreen" : "offScreen"}`}>
                 <li><Link to={"/"}>Sign Up</Link></li>
                 <li><Link to={"/"}>Login</Link></li>
                 <li><Link to={"/"}>About</Link></li>
             </ul>
+            <div className="mobile">
+            <button className={`hamburgerIcon ${isEnabled ? "hidden" : ""}`} onClick={handleMenuChange}>≡</button>
+            <button className={`closeIcon ${isEnabled ? "" : "hidden"}`} onClick={handleMenuChange}>X</button>
         </div>
-        <div className="mobile">
-            <i className={`hamburgerIcon ${isEnabled ? "hidden" : ""}`} onClick={handleMenuChange}>≡</i>
-            <i className={`closeIcon ${isEnabled ? "" : "hidden"}`} onClick={handleMenuChange}>X</i>
         </div>
+        
 
     </nav>
 }
