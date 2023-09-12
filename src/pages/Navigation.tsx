@@ -21,7 +21,7 @@ function Navigation(props: any){
                 <li><Link to={"/"}>About</Link></li>
             </ul>
         </div>
-        <div id="mobile">
+        <div className="mobile">
             <i className={`hamburgerIcon ${isEnabled ? "hidden" : ""}`} onClick={handleMenuChange}>≡</i>
             <i className={`closeIcon ${isEnabled ? "" : "hidden"}`} onClick={handleMenuChange}>X</i>
         </div>

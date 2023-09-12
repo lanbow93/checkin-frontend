@@ -71,8 +71,8 @@ nav{
 /*  Laptops and small monitors */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media (min-width: 57rem) {
-  * {
-    
+  .mobile{
+    display: none;
   }
 }
 
