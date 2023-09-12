@@ -91,7 +91,20 @@ nav h1{
 /*  Laptops and small monitors */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media (min-width: 57rem) {
-
+ #navbar{
+  width: 22rem;
+  padding-left: 2rem;
+ }
+ .offScreen{
+  right: -29rem !important;
+}
+  #navbar a{
+    font-size: 1.8rem;
+  }
+  #navbar a:hover{
+    text-underline-offset: 1rem;
+    font-size: 2rem;
+  }
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
