@@ -58,6 +58,9 @@ nav{
   font-size: 1.7rem;
   font-family:'Lucida Sans';
 }
+.logo{
+  max-width: 2.5rem;
+}
 
 .hidden{
   display: none
