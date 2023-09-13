@@ -16,6 +16,9 @@
   
   --background-color: linear-gradient(275deg, var(--lightgreen-color) 0%, var(--lightblue-color) 100%);
 }
+html{
+  background: var(--background-color);
+}
 /* ~~~~~~~~~~~~~~~~Navigation~~~~~~~~~~~~~~~~~~ */
 nav{
   display: flex;
@@ -43,7 +46,8 @@ nav{
 nav h1{
   font-family: var(--title-font);
   font-size: 2rem;
-  color: var(--lightgreen-color)
+  color: var(--lightpurple-color);
+  text-shadow: 1px 1px 2px green;
 }
 #navbar li{
   list-style: none;
@@ -90,9 +94,30 @@ nav h1{
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~~~~~~~~~~~~~~~~Landing Page~~~~~~~~~~~~~~~~~~ */
-.landing  p{
+
+.landing h1{
+  margin: 1rem .25rem;
+  font-size: 1.6rem;
+}
+.landing .title{
+  font-family: var(--title-font);
+  font-size: 3rem;
+  color: var(--lightpurple-color);
+  text-shadow: 1px 1px 2px black;
+}
+.landingDescription{
+  display: flex;
+  flex-direction: column;
   padding: 0rem 2rem;
 }
+.landing p{
+  font-size: 1rem;
+  letter-spacing: .3rem;
+}
+.landingCard{
+  border: 1px solid black;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /*  Laptops and small monitors */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
