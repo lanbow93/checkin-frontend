@@ -1,7 +1,7 @@
 import LandingInformationCard from "../components/LandingInformationCards"
 import speedyLogo from "../assets/speedyLogo.png"
 import { useState } from "react"
-
+import { Link } from "react-router-dom"
 function Landing(){
 
     const [currentActivePanel, setCurrentActivePanel] = useState("about")
@@ -18,6 +18,10 @@ function Landing(){
     <div className="landingDescription">
         <div className="greeting">
             <p>Welcome to Speedy Check-In, your comprehensive solution for efficient workforce management!</p>
+            <div className="actionLinks">
+                <Link to="/login"><button>Login</button></Link>
+                <Link to={"/signup"}><button>Sign-Up</button></Link>
+            </div>
         </div>
         <div className="logoSection">
             <img src={speedyLogo} alt="Speedy Checkin Logo" />

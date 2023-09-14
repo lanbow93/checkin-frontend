@@ -119,6 +119,25 @@ nav h1{
   box-shadow:  2px 4px 0 rgba(0,0,0,0.10);
   margin-bottom: 1rem;
 }
+.actionLinks{
+  display: flex;
+  justify-content: space-around;
+  margin-top: .5rem;
+
+}
+
+
+.actionLinks button{
+  font-size: 1.3em;
+  padding: .5rem;
+  background-color: var(--lightpurple-color);
+  color: white;
+  border-radius: 1rem;
+  min-width: 7rem;
+}
+.actionLinks button:hover{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
 .logoSection img{
   max-width: 15rem;
   margin-bottom: 1rem;
@@ -157,6 +176,8 @@ nav h1{
   background-color: green;
   transition: 1700ms ease-in-out;
 }
+
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /*  Laptops and small monitors */
