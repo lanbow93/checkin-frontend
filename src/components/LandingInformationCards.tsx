@@ -1,23 +1,17 @@
-import { useState } from "react"
+import { MouseEventHandler, useState } from "react"
 
 interface landingCardProps{
     cardTitle: string,
-    cardContent: string
+    cardContent: string,
+    isActive: boolean,
+    changeFocus: Function
 }
 
 
 function LandingInformationCard(props: landingCardProps){
-    const [isActive, setIsActive] = useState(false)
-    const handleClick = () => {
-        if(isActive){
-            setIsActive(false)
-        } else{
-            setIsActive(true)
-        }
-    }
     return <div className={`landingCard `}  >
-        <h2 className="cardTitle" onClick={handleClick}>{props.cardTitle}</h2>
-        <p className={`cardContent ${isActive ? "cardActivated" : "cardDeactivated"}`}>{props.cardContent}</p>
+        <h2 className="cardTitle" onClick={(event) => props.changeFocus(event.target)}>{props.cardTitle}</h2>
+        <p className={`cardContent ${props.isActive ? "cardActivated" : "cardDeactivated"}`}>{props.cardContent}</p>
     </div>
 }
 
