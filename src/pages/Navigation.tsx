@@ -14,11 +14,11 @@ function Navigation(props: any){
         <Link to={"/"}>
             <img src={checkLogo} alt="" className="logo"/>
         </Link>
-        <h1>Speedy Check-In</h1>
+        <h1><Link to="/">Speedy Check-In</Link></h1>
         <div>
             <ul id="navbar" className={`${isEnabled ? "onScreen" : "offScreen"}`}>
-                <li><Link to={"/"}>Sign Up</Link></li>
-                <li><Link to={"/"}>Login</Link></li>
+                <li><Link to={"/signup"}>Sign Up</Link></li>
+                <li><Link to={"/login"}>Login</Link></li>
                 <li><Link to={"/"}>About</Link></li>
             </ul>
             <div className="mobile">
