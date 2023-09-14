@@ -1,4 +1,5 @@
 import LandingInformationCard from "../components/LandingInformationCards"
+import speedyLogo from "../assets/speedyLogo.png"
 
 function Landing(){
     return <div className="landing">
@@ -7,6 +8,9 @@ function Landing(){
     <div className="landingDescription">
         <div className="greeting">
             <p>Welcome to Speedy Check-In, your comprehensive solution for efficient workforce management!</p>
+        </div>
+        <div className="logoSection">
+            <img src={speedyLogo} alt="Speedy Checkin Logo" />
         </div>
         <LandingInformationCard cardTitle="About" cardContent="Our web application simplifies the entire process, allowing managers to effortlessly create, enroll, assign groups, and set schedules."/>
         <LandingInformationCard cardTitle="How" cardContent="With the ability to generate QR codes, managers can streamline check-in procedures."/>

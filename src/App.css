@@ -113,6 +113,10 @@ nav h1{
   box-shadow:  2px 4px 0 rgba(0,0,0,0.10);
   margin-bottom: 1rem;
 }
+.logoSection img{
+  max-width: 15rem;
+  margin-bottom: 1rem;
+}
 .landingDescription{
   display: flex;
   flex-direction: column;
@@ -142,9 +146,8 @@ nav h1{
   overflow: hidden;
   padding: 1rem;
 }
-
 .landingCard:has(.cardActivated) h2{
-  background-color: red;
+  background-color: green;
   transition: 1700ms ease-in-out;
 }
 
