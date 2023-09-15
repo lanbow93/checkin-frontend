@@ -22,7 +22,7 @@ function SignUp(){
     }
     return <div className="registration">
         
-        <form action="/register" method="POST">
+        <form action="/signup/register" method="POST">
             <h2>Sign Up Page</h2>
             <p className="finePrint">* Username 15 Character Limit</p>
             <label >Username</label>
@@ -30,7 +30,7 @@ function SignUp(){
             <label >Password</label>
             <input type="password" className="passwordRow" value={password} onChange={(event) => setPassword(event.target.value)}/>
             <label >Verify Password</label>
-            <input type="password" name="verifypassword" value={verifypassword} onChange={(event) => setVerifyPassword(event.target.value)} />
+            <input type="password" className={password !== verifypassword ? "different" : verifypassword && password ? "same" : ""} name="verifypassword" value={verifypassword} onChange={(event) => setVerifyPassword(event.target.value)} />
             <h2>Account Information</h2>
             <p className="finePrint">* Badge Name 15 Character Limit</p>
             <label>First Name</label>
@@ -41,7 +41,7 @@ function SignUp(){
             <input type="email" name="email" value={email} onChange={(event) => {setEmail(event.target.value)}} />
             <label>Badge Name</label>
             <input type="text" name="badgeName" value={badgeName} onChange={(event) => event.target.value.length <= 14 ? setBadgeName(event.target.value) : ""}/>
-            {firstName && lastName && password && password === verifypassword && username && email ? <button type="submit" className="activated" >Register</button> : <button type="submit" disabled>Register</button> }
+            {firstName && lastName && password && password === verifypassword && username && email && badgeName? <button type="submit" className="activated" >Register</button> : <button type="submit" disabled>Register</button> }
             <input type="hidden" value={name} name="name" />
         </form>
     </div>

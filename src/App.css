@@ -202,6 +202,9 @@ nav h1 a{
   padding-left: .2rem;
 }
 
+.registration input {
+  outline: none;
+}
 .registration button{
   font-size: 1.5rem;
   border-radius: .5rem;
@@ -219,6 +222,14 @@ nav h1 a{
   justify-self: start;
   color: rgb(163, 0, 0);
   margin: .5rem;
+}
+
+.same{
+  border: 2px solid green;
+}
+
+.different{
+  border: 2px solid red;
 }
 
 
