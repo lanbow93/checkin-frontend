@@ -1,6 +1,7 @@
+import loadingImage from "../assets/loading.gif"
 function LoadingScreen(){
     return <div className="loadingScreen">
-        <h1>Currently Loading</h1>
+        <img src={loadingImage} alt="" />
     </div>
 }
 

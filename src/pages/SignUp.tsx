@@ -1,4 +1,7 @@
-import { EventHandler, useState } from "react"
+import { useState } from "react"
+import LoadingScreen from "../components/LoadingScreen"
+import url from "../router/url"
+import { json } from "react-router-dom"
 
 function SignUp(){
     const [firstName, setFirstName] = useState("")
@@ -24,10 +27,37 @@ function SignUp(){
 
     const handleFormSubmission = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        set
+        setIsLoading(true)
+        const newUser = {
+            name: name,
+            username: username,
+            password: password,
+            email: email,
+            badgeName: badgeName
+        }
+        try{
+            const response = await fetch(url + "/user/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newUser)
+            })
+
+            if(response.ok){
+                console.log(response.ok)
+            } else {
+                console.log(response)
+            }
+        } catch(error){
+            console.log(error)
+        } finally{
+            setIsLoading(false)
+        }
     }
     return <div className="registration">
-        {}
+        {isLoading ? 
+        <LoadingScreen /> :
         <form onSubmit={(event) => handleFormSubmission(event)}>
             <h2>Sign Up Page</h2>
             <p className="finePrint">* Username 15 Character Limit</p>
@@ -50,6 +80,8 @@ function SignUp(){
             {firstName && lastName && password && password === verifypassword && username && email && badgeName? <button type="submit" className="activated" >Register</button> : <button type="submit" disabled>Register</button> }
             <input type="hidden" value={name} name="name" />
         </form>
+        }
+
     </div>
 }
 

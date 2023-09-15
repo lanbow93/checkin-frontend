@@ -19,6 +19,10 @@
 html{
   background: var(--background-color);
 }
+
+.loadingScreen img {
+  max-width: 100%;
+}
 /* ~~~~~~~~~~~~~~~~Navigation~~~~~~~~~~~~~~~~~~ */
 nav{
   display: flex;
