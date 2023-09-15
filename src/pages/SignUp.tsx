@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { EventHandler, useState } from "react"
 
 function SignUp(){
     const [firstName, setFirstName] = useState("")
@@ -9,6 +9,7 @@ function SignUp(){
     const [verifypassword, setVerifyPassword] = useState("")
     const [email, setEmail] = useState("")
     const [badgeName, setBadgeName] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
 
     // Used to combine first and last name for form submission
     const handleNameChange = (name: string, isFirstName: boolean) => {
@@ -20,9 +21,14 @@ function SignUp(){
             setName(firstName + " " + lastName)
         }
     }
+
+    const handleFormSubmission = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        set
+    }
     return <div className="registration">
-        
-        <form action="/signup/register" method="POST">
+        {}
+        <form onSubmit={(event) => handleFormSubmission(event)}>
             <h2>Sign Up Page</h2>
             <p className="finePrint">* Username 15 Character Limit</p>
             <label >Username</label>
