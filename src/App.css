@@ -99,7 +99,7 @@ nav h1 a{
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~~~~~~~~~~~~~~~~Landing Page~~~~~~~~~~~~~~~~~~ */
-.landing{
+.landing, .registration{
   margin-top: 4.5rem;
 }
 .landing h1{
@@ -128,7 +128,6 @@ nav h1 a{
   margin-top: .5rem;
 
 }
-
 .logoSection img{
   max-width: 15rem;
   margin-bottom: 1rem;
@@ -151,7 +150,6 @@ nav h1 a{
 .actionLinks button:hover{
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
-
 .landing p{
   font-size: 1rem;
   letter-spacing: .2rem;
@@ -182,6 +180,48 @@ nav h1 a{
   transition: 1700ms ease-in-out;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~Sign Up Page~~~~~~~~~~~~~~~~~~ */
+.registration form{
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 2rem;
+  margin-top: 6rem;
+  background-color: rgba(0, 0, 0, 0.116);
+  padding: 1rem;
+  border-radius: .4rem;
+}
+.registration form label{
+  justify-self: start;
+}
+.registration form input{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: .4rem;
+  text-align: start;
+  padding-left: .2rem;
+}
+
+.registration button{
+  font-size: 1.5rem;
+  border-radius: .5rem;
+}
+.registration .activated{
+  
+  
+  background-color: var(--lightpurple-color);
+  box-shadow:  2px 3px 4px black;
+}
+.registration .activated:hover{
+  box-shadow: inset 0px 0px 4px black, 0px 0px 5px black;
+}
+.finePrint{
+  font-size: .7rem;
+  font-weight: bold;
+  justify-self: start;
+  color: rgb(163, 0, 0);
+  margin: .5rem;
+}
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
