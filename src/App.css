@@ -243,7 +243,7 @@ nav h1 a{
  }
  .offScreen{
   right: -29rem !important;
-}
+  }
   #navbar a{
     font-size: 1.8rem;
   }
@@ -251,6 +251,26 @@ nav h1 a{
     text-underline-offset: 1rem;
     font-size: 2rem;
   }
+
+  /* Sign Up Page */
+  .registration {
+    display: flex;
+    justify-content: center;
+  }
+  .registration form{
+    grid-template-columns: 1fr 3fr;
+    margin-top: .75rem;
+  }
+  .registration form h2, .finePrint, .registration form button{
+    grid-column: span 2;
+  }
+  .registration input{
+    margin-left: .5rem;
+  }
+  .registration label{
+    align-self: flex-start;
+  }
+
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
