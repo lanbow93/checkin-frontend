@@ -1,7 +1,8 @@
 import { useState } from "react"
 import LoadingScreen from "../components/LoadingScreen"
 import url from "../router/url"
-import { json } from "react-router-dom"
+import { json, redirect } from "react-router-dom"
+import ErrorScreen from "../components/ErrorScreen"
 
 function SignUp(){
     const [firstName, setFirstName] = useState("")
@@ -13,6 +14,10 @@ function SignUp(){
     const [email, setEmail] = useState("")
     const [badgeName, setBadgeName] = useState("")
     const [isLoading, setIsLoading] = useState(false)
+    const [isModalActive, setIsModalActive] = useState(true)
+    const [errorMessage, setErrorMessage] = useState("")
+    const [errorStatus, setErrorStatus] = useState("")
+    const [errorAdditional, setErrorAdditional] = useState("")
 
     // Used to combine first and last name for form submission
     const handleNameChange = (name: string, isFirstName: boolean) => {
@@ -43,11 +48,16 @@ function SignUp(){
                 },
                 body: JSON.stringify(newUser)
             })
-            const data = await response.json()
+            
             if(response.ok){
-                console.log(data)
+                redirect(`/login`)
             } else {
+                const data = await response.json()
                 console.log(data)
+                setErrorStatus(data.status)
+                setErrorAdditional(data.error)
+                setErrorMessage(data.message)
+                setIsModalActive(true)
             }
         } catch(error){
             console.log(error)
@@ -56,6 +66,9 @@ function SignUp(){
         }
     }
     return <div className="registration">
+        <div className={`errorModal ${isModalActive ? "showError" : ""}`}>
+            <ErrorScreen message={errorMessage} status={errorStatus} error={errorAdditional}  closeModal={setIsModalActive} />
+        </div>
         {isLoading ? 
         <LoadingScreen /> :
         <form onSubmit={(event) => handleFormSubmission(event)}>
