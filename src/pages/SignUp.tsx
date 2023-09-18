@@ -24,7 +24,7 @@ function SignUp(){
             setName(firstName + " " + lastName)
         }
     }
-
+    // Fetch request that allows new user creation and loading screen to be ran until response recveived 
     const handleFormSubmission = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         setIsLoading(true)
@@ -43,11 +43,11 @@ function SignUp(){
                 },
                 body: JSON.stringify(newUser)
             })
-
+            const data = await response.json()
             if(response.ok){
-                console.log(response.ok)
+                console.log(data)
             } else {
-                console.log(response)
+                console.log(data)
             }
         } catch(error){
             console.log(error)

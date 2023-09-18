@@ -21,7 +21,8 @@ html{
 }
 
 .loadingScreen img {
-  max-width: 100%;
+  max-width: 95%;
+  border-radius: 30rem;
 }
 /* ~~~~~~~~~~~~~~~~Navigation~~~~~~~~~~~~~~~~~~ */
 nav{
