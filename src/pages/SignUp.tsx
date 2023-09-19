@@ -55,9 +55,9 @@ function SignUp(){
                 const data = await response.json()
                 // Made to detect errors in backend format
                 if(typeof data.error === "string") {
-                    setErrorStatus(data.status)
-                    setErrorAdditional(data.error)
-                    setErrorMessage(data.message)
+                    setErrorStatus(data.error)
+                    setErrorAdditional(data.message)
+                    setErrorMessage(data.status)
                     setIsModalActive(true)
                 } else { // Catching Email and Username Duplicate Mongo Errors
                     setErrorStatus(data.status)

@@ -26,25 +26,37 @@ html{
 }
 
 .errorModal{
-  display: none;
-}
-.showError{
-  display: block;
-}
-
-.errorScreen{
   position: absolute;
-  border: 1px solid red;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.623);
+  display: none;
+
+}
+.showError{
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  
+}
+
+.errorScreen{
+  background-color: grey;
+  position: absolute;
+  padding: 1rem;
+  margin: 0 2rem;
+  left: 0;
+  right: 0;
+}
+.errorScreen h1{
+  color: white;
+  text-shadow: red 1px 1px;
+  margin-bottom: .5rem;
+}
+
+.errorScreen h2 {
+  color: white;
+  margin-bottom: 1rem;
 }
 /* ~~~~~~~~~~~~~~~~Navigation~~~~~~~~~~~~~~~~~~ */
 nav{
