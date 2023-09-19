@@ -53,14 +53,27 @@ function SignUp(){
                 redirect(`/login`)
             } else {
                 const data = await response.json()
-                console.log(data)
-                setErrorStatus(data.status)
-                setErrorAdditional(data.error)
-                setErrorMessage(data.message)
-                setIsModalActive(true)
+                // Made to detect errors in backend format
+                if(typeof data.error === "string") {
+                    setErrorStatus(data.status)
+                    setErrorAdditional(data.error)
+                    setErrorMessage(data.message)
+                    setIsModalActive(true)
+                } else { // Catching Email and Username Duplicate Mongo Errors
+                    setErrorStatus(data.status)
+                    setErrorMessage(data.message)
+                    if(data.error.error.code === 11000 && data.error.error.keyPattern.username){
+                        setErrorAdditional("Username Already Exists")
+                    } else if(data.error.error.code === 11000 && data.error.error.keyPattern.email){
+                        setErrorAdditional("Email Already Exists")
+                    }else{
+                        setErrorAdditional("Unknown")
+                    }
+                    setIsModalActive(true)
+                }
             }
         } catch(error){
-            console.log(error)
+            console.log({error})
         } finally{
             setIsLoading(false)
         }
