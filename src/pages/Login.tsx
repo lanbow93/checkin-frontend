@@ -1,8 +1,8 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import ErrorScreen from "../components/ErrorScreen"
 import LoadingScreen from "../components/LoadingScreen"
-
-
+import url from "../router/url"
 
 function Login(){
     const [isLoading, setIsLoading] = useState(false)
@@ -12,10 +12,39 @@ function Login(){
     const [errorAdditional, setErrorAdditional] = useState("")
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
     const handleSubmission = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsLoading(true);
+        const user = {
+            username: username,
+            password: password
+        }
+        try{
+            const response = await fetch(url + "/user/login",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            })
+
+            if(response.ok){
+                navigate("/home")
+            } else {
+                const data = await response.json()
+                console.log(data)
+                setErrorStatus(data.error)
+                setErrorAdditional(data.message)
+                setErrorMessage(data.status)
+                setIsModalActive(true)
+            }
+        }catch(error){
+            console.log(error)
+        } finally{
+            setIsLoading(false)
+        }
 
     }
 
