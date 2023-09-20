@@ -140,7 +140,6 @@ nav h1 a{
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~~~~~~~~~~~~~~~~Landing Page~~~~~~~~~~~~~~~~~~ */
-
 .landing h1{
   margin: 1rem .25rem;
   font-size: 1.6rem;
@@ -270,6 +269,18 @@ nav h1 a{
 .loginPage h2{
   margin-bottom: 1rem;
 }
+.forgotLink{
+  margin-top: .5rem;
+  justify-self: end;
+  text-decoration: none;
+  color: white;
+  background-color: grey;
+  border-radius: 1rem;
+  padding: .2rem .5rem;
+}
+.forgotLink:hover{
+  background-color: var(--lightpurple-color);
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /*  Laptops and small monitors */
@@ -299,7 +310,7 @@ nav h1 a{
     grid-template-columns: 1fr 3fr;
     margin-top: .75rem;
   }
-  .registration form h2, .finePrint, .registration form button, .loginPage form h2, .loginPage form button{
+  .registration form h2, .finePrint, .registration form button, .loginPage form h2, .loginPage form button, .forgotLink{
     grid-column: span 2;
   }
   .registration input, .loginPage input{
@@ -307,6 +318,9 @@ nav h1 a{
   }
   .registration label, .loginPage label{
     align-self: flex-start;
+  }
+  .forgotLink{
+    margin-top: 1rem;
   }
 
 }

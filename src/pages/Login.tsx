@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import ErrorScreen from "../components/ErrorScreen"
 import LoadingScreen from "../components/LoadingScreen"
 import url from "../router/url"
@@ -62,6 +62,7 @@ function Login(){
             <label>Password:</label>
             <input type="password" name="password" value={password} onChange={(event) => setPassword(event.target.value) }/>
             {username && password ?  <button type="submit" className="activated">Submit</button> : <button type="submit" className="deactivated" disabled>Submit</button>}
+            <Link to="/forgotpassword" className="forgotLink">Forgot Password</Link>
             </form>
         }
 
