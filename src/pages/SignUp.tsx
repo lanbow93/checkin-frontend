@@ -1,10 +1,12 @@
 import { useState } from "react"
 import LoadingScreen from "../components/LoadingScreen"
 import url from "../router/url"
-import { json, redirect } from "react-router-dom"
 import ErrorScreen from "../components/ErrorScreen"
+import {  useNavigate } from "react-router-dom"
+
 
 function SignUp(){
+    const navigate = useNavigate()
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [name, setName] = useState("")
@@ -14,7 +16,7 @@ function SignUp(){
     const [email, setEmail] = useState("")
     const [badgeName, setBadgeName] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const [isModalActive, setIsModalActive] = useState(true)
+    const [isModalActive, setIsModalActive] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")
     const [errorStatus, setErrorStatus] = useState("")
     const [errorAdditional, setErrorAdditional] = useState("")
@@ -50,7 +52,7 @@ function SignUp(){
             })
             
             if(response.ok){
-                redirect(`/login`)
+                navigate("/login")
             } else {
                 const data = await response.json()
                 // Made to detect errors in backend format

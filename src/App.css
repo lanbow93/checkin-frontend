@@ -38,15 +38,14 @@ html{
 .showError{
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .errorScreen{
   background-color: grey;
   position: absolute;
   padding: 1rem;
-  margin: 0 2rem;
-  left: 0;
-  right: 0;
+  justify-self: center;
 }
 .errorScreen h1{
   color: white;
