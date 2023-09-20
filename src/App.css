@@ -20,6 +20,11 @@ html{
   background: var(--background-color);
 }
 
+/* Universal Items */
+.landing, .registration, .loginPage, .homePage{
+  margin-top: 4.5rem;
+}
+
 .loadingScreen img {
   max-width: 95%;
   border-radius: 30rem;
@@ -135,9 +140,7 @@ nav h1 a{
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~~~~~~~~~~~~~~~~Landing Page~~~~~~~~~~~~~~~~~~ */
-.landing, .registration, .loginPage{
-  margin-top: 4.5rem;
-}
+
 .landing h1{
   margin: 1rem .25rem;
   font-size: 1.6rem;
