@@ -216,8 +216,8 @@ nav h1 a{
   transition: 1700ms ease-in-out;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-/* ~~~~~~~~~~~~~~~ Sign Up Page ~~~~~~~~~~~~~~~ */
-.registration form, .loginPage form{
+/* ~~~~~~~~~~~~~~~ Form Formatting ~~~~~~~~~~~~~~~ */
+form{
   display: grid;
   grid-template-columns: 1fr;
   margin: 0 2rem;
@@ -226,28 +226,26 @@ nav h1 a{
   padding: 1rem;
   border-radius: .4rem;
 }
-.registration form label, .loginPage form label{
+form label{
   justify-self: start;
 }
-.registration form input, .loginPage form input{
+form input{
   font-size: 1.5rem;
   margin-bottom: 1rem;
   border-radius: .4rem;
   text-align: start;
   padding-left: .2rem;
-}
-.registration input, .loginPage input {
   outline: none;
 }
-.registration button, .loginPage button{
+form button{
   font-size: 1.5rem;
   border-radius: .5rem;
 }
-.registration .activated, .loginPage .activated{
+form .activated{
   background-color: var(--lightpurple-color);
   box-shadow:  2px 3px 4px black;
 }
-.registration .activated:hover, .loginPage .activated:hover{
+form .activated:hover{
   box-shadow: inset 0px 0px 4px black, 0px 0px 5px black;
 }
 .finePrint{
@@ -306,17 +304,17 @@ nav h1 a{
     display: flex;
     justify-content: center;
   }
-  .registration form, .loginPage form{
+  form{
     grid-template-columns: 1fr 3fr;
     margin-top: .75rem;
   }
-  .registration form h2, .finePrint, .registration form button, .loginPage form h2, .loginPage form button, .forgotLink{
+  form h2, .finePrint, form button, form h2, form button, .forgotLink{
     grid-column: span 2;
   }
-  .registration input, .loginPage input{
+  form input{
     margin-left: .5rem;
   }
-  .registration label, .loginPage label{
+  form label{
     align-self: flex-start;
   }
   .forgotLink{
