@@ -5,11 +5,8 @@ import { Link } from "react-router-dom"
 function Landing(){
 
     const [currentActivePanel, setCurrentActivePanel] = useState("about")
-    type targetObject = {
-        innerText: string
-    }
-    const changeFocus = (target: targetObject) => {
-        setCurrentActivePanel(target.innerText)
+    const changeFocus = ({innerText}: {innerText: string}) => {
+        setCurrentActivePanel(innerText)
     }
 
     return <div className="landing">
