@@ -57,7 +57,7 @@ function SignUp() {
                     state: {
                         header: 'User Created',
                         message: `${userData.username} has been successfully created`,
-                        link: '/home',
+                        link: '/login',
                         state: '',
                     },
                 })

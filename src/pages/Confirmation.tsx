@@ -1,21 +1,23 @@
 import { Link, useLocation } from 'react-router-dom'
-interface confirmationProps {
-    heading: string
+interface confirmationState {
+    header: string
     message: string
-    linkTo: string
-    data: Object
+    link: string
+    data: Object | string
 }
 
 function Confirmation() {
-    const location = useLocation()
-    console.log(location)
+    const state: confirmationState = useLocation().state
+    console.log(state)
     return (
         <div className="confirmation">
-            <h1>Heading</h1>
-            <p>Message</p>
-            <Link to={`/home`} state={'Hello'}>
-                Continue
-            </Link>
+            <div className="confirmationBody">
+                <h1>{state.header}</h1>
+                <p>{state.message}</p>
+                <Link to={`${state.link}`} state={state.data}>
+                    Continue
+                </Link>
+            </div>
         </div>
     )
 }
