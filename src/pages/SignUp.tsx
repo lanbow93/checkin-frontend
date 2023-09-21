@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import LoadingScreen from '../components/LoadingScreen'
 import url from '../router/url'
 import ErrorScreen from '../components/ErrorScreen'
@@ -8,27 +8,34 @@ function SignUp() {
     const navigate = useNavigate()
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [name, setName] = useState('')
-    const [username, setUserName] = useState('')
-    const [password, setPassword] = useState('')
-    const [verifypassword, setVerifyPassword] = useState('')
-    const [email, setEmail] = useState('')
-    const [badgeName, setBadgeName] = useState('')
+    const [userData, setUserData] = useState({
+        name: '',
+        username: '',
+        email: '',
+        password: '',
+        badgeName: '',
+    })
+    const [verifyPassword, setVerifyPassword] = useState('')
+
     const [isLoading, setIsLoading] = useState(false)
     const [isModalActive, setIsModalActive] = useState(false)
-    const [errorMessage, setErrorMessage] = useState('')
-    const [errorStatus, setErrorStatus] = useState('')
-    const [errorAdditional, setErrorAdditional] = useState('')
+
+    const [errorData, setErrorData] = useState({
+        errorMessage: '',
+        errorStatus: '',
+        errorAdditional: '',
+    })
 
     // Used to combine first and last name for form submission
-    const handleNameChange = (name: string, isFirstName: boolean) => {
-        if (isFirstName) {
-            setFirstName(name)
-            setName(firstName + ' ' + lastName)
-        } else {
-            setLastName(name)
-            setName(firstName + ' ' + lastName)
-        }
+    const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+        event.target.name === 'firstName'
+            ? setFirstName(event.target.value)
+            : setLastName(event.target.value)
+        setUserData({ ...userData, name: `${firstName} ${lastName}` })
+    }
+
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setUserData({ ...userData, [event.target.name]: event.target.value })
     }
     // Fetch request that allows new user creation and loading screen to be ran until response recveived
     const handleFormSubmission = async (
@@ -36,27 +43,20 @@ function SignUp() {
     ) => {
         event.preventDefault()
         setIsLoading(true)
-        const newUser = {
-            name: name,
-            username: username,
-            password: password,
-            email: email,
-            badgeName: badgeName,
-        }
+
         try {
             const response = await fetch(url + '/user/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(newUser),
+                body: JSON.stringify(userData),
             })
-
             if (response.ok) {
                 navigate('/confirmation', {
                     state: {
                         header: 'User Created',
-                        message: `${username} has been successfully created`,
+                        message: `${userData.username} has been successfully created`,
                         link: '/home',
                         state: '',
                     },
@@ -65,26 +65,40 @@ function SignUp() {
                 const data = await response.json()
                 // Made to detect errors in backend format
                 if (typeof data.error === 'string') {
-                    setErrorStatus(data.error)
-                    setErrorAdditional(data.message)
-                    setErrorMessage(data.status)
+                    setErrorData({
+                        errorStatus: data.error,
+                        errorMessage: data.status,
+                        errorAdditional: data.message,
+                    })
                     setIsModalActive(true)
                 } else {
                     // Catching Email and Username Duplicate Mongo Errors
-                    setErrorStatus(data.status)
-                    setErrorMessage(data.message)
+                    setErrorData({
+                        errorStatus: data.status,
+                        errorMessage: data.message,
+                        errorAdditional: '',
+                    })
                     if (
                         data.error.error.code === 11000 &&
                         data.error.error.keyPattern.username
                     ) {
-                        setErrorAdditional('Username Already Exists')
+                        setErrorData({
+                            ...errorData,
+                            errorAdditional: 'Username Already Exists',
+                        })
                     } else if (
                         data.error.error.code === 11000 &&
                         data.error.error.keyPattern.email
                     ) {
-                        setErrorAdditional('Email Already Exists')
+                        setErrorData({
+                            ...errorData,
+                            errorAdditional: 'Email Already Exists',
+                        })
                     } else {
-                        setErrorAdditional('Unknown')
+                        setErrorData({
+                            ...errorData,
+                            errorAdditional: 'Unknown',
+                        })
                     }
                     setIsModalActive(true)
                 }
@@ -99,48 +113,45 @@ function SignUp() {
         <div className="registration">
             <div className={`errorModal ${isModalActive ? 'showError' : ''}`}>
                 <ErrorScreen
-                    message={errorMessage}
-                    status={errorStatus}
-                    error={errorAdditional}
+                    message={errorData.errorMessage}
+                    status={errorData.errorStatus}
+                    error={errorData.errorAdditional}
                     closeModal={setIsModalActive}
                 />
             </div>
             {isLoading ? (
                 <LoadingScreen />
             ) : (
-                <form onSubmit={(event) => handleFormSubmission(event)}>
+                <form onSubmit={handleFormSubmission}>
                     <h2>Sign Up Page</h2>
                     <p className="finePrint">* Username 15 Character Limit</p>
                     <label>Username</label>
                     <input
                         type="text"
                         name="username"
-                        value={username}
-                        onChange={(event) =>
-                            event.target.value.length <= 14
-                                ? setUserName(event.target.value)
-                                : ''
-                        }
+                        value={userData.username}
+                        onChange={(event) => handleInputChange(event)}
                     />
                     <label>Password</label>
                     <input
                         type="password"
                         className="passwordRow"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
+                        name="password"
+                        value={userData.password}
+                        onChange={(event) => handleInputChange(event)}
                     />
                     <label>Verify Password</label>
                     <input
                         type="password"
                         className={
-                            password !== verifypassword
+                            userData.password !== verifyPassword
                                 ? 'different'
-                                : verifypassword && password
+                                : verifyPassword && userData.password
                                 ? 'same'
                                 : ''
                         }
                         name="verifypassword"
-                        value={verifypassword}
+                        value={verifyPassword}
                         onChange={(event) =>
                             setVerifyPassword(event.target.value)
                         }
@@ -150,48 +161,38 @@ function SignUp() {
                     <label>First Name</label>
                     <input
                         type="text"
-                        name="firstname"
+                        name="firstName"
                         value={firstName}
-                        onChange={(event) => {
-                            handleNameChange(event.target.value, true)
-                        }}
+                        onChange={(event) => handleNameChange(event)}
                     />
                     <label>Last Name</label>
                     <input
                         type="text"
-                        name="firstname"
+                        name="lastName"
                         value={lastName}
-                        onChange={(event) => {
-                            handleNameChange(event.target.value, false)
-                        }}
+                        onChange={(event) => handleNameChange(event)}
                     />
                     <label>Email</label>
                     <input
                         type="email"
                         name="email"
-                        value={email}
-                        onChange={(event) => {
-                            setEmail(event.target.value)
-                        }}
+                        value={userData.email}
+                        onChange={(event) => handleInputChange(event)}
                     />
                     <label>Badge Name</label>
                     <input
                         type="text"
                         name="badgeName"
-                        value={badgeName}
-                        onChange={(event) =>
-                            event.target.value.length <= 14
-                                ? setBadgeName(event.target.value)
-                                : ''
-                        }
+                        value={userData.badgeName}
+                        onChange={(event) => handleInputChange(event)}
                     />
                     {firstName &&
                     lastName &&
-                    password &&
-                    password === verifypassword &&
-                    username &&
-                    email &&
-                    badgeName ? (
+                    userData.password &&
+                    userData.password === verifyPassword &&
+                    userData.username &&
+                    userData.email &&
+                    userData.badgeName ? (
                         <button type="submit" className="activated">
                             Register
                         </button>
@@ -200,7 +201,7 @@ function SignUp() {
                             Register
                         </button>
                     )}
-                    <input type="hidden" value={name} name="name" />
+                    <input type="hidden" value={userData.name} name="name" />
                 </form>
             )}
         </div>
