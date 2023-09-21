@@ -52,7 +52,7 @@ function SignUp(){
             })
             
             if(response.ok){
-                navigate("/login")
+                navigate("/confirmation", {state: {header: "User Created", message: `${username} has been successfully created`, link:"/home", state: "" }})
             } else {
                 const data = await response.json()
                 // Made to detect errors in backend format

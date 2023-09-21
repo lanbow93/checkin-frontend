@@ -5,6 +5,7 @@ import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import HomePage from "../pages/HomePage";
 import ForgotPassword from "../pages/ForgotPassword";
+import Confirmation from "../pages/Confirmation";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App />} >
@@ -13,6 +14,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<HomePage/>} />
         <Route path="/forgotpassword" element={<ForgotPassword />}/>
+        <Route path="/confirmation" element={<Confirmation />} />
     </Route>
 ))
 

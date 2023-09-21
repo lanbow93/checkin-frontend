@@ -327,9 +327,5 @@ form .activated:hover{
 /* Large Screens */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media (min-width: 95rem) {
-  * {
-    
-  }
-
-
+  
 }
