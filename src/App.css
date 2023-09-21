@@ -1,331 +1,346 @@
 @import url('https://fonts.googleapis.com/css2?family=Ranga&display=swap');
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  text-align: center;
-  font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: center;
+    font-family: Helvetica;
 }
 :root {
-  --lightgreen-color: #D5FFE4;
-  --lightblue-color: #8BE8E5;
-  --lightpurple-color: #A084E8;
-  --purple-color: #6F61C0;
-  --lightblack-color: rgba(0, 0, 0, 0.596);
-  --title-font: 'Ranga', cursive;
-  
-  --background-color: linear-gradient(275deg, var(--lightgreen-color) 0%, var(--lightblue-color) 100%);
+    --lightgreen-color: #d5ffe4;
+    --lightblue-color: #8be8e5;
+    --lightpurple-color: #a084e8;
+    --purple-color: #6f61c0;
+    --lightblack-color: rgba(0, 0, 0, 0.596);
+    --title-font: 'Ranga', cursive;
+
+    --background-color: linear-gradient(
+        275deg,
+        var(--lightgreen-color) 0%,
+        var(--lightblue-color) 100%
+    );
 }
-html{
-  background: var(--background-color);
+html {
+    background: var(--background-color);
 }
 
 /* Universal Items */
-.landing, .registration, .loginPage, .homePage{
-  margin-top: 4.5rem;
+.landing,
+.registration,
+.loginPage,
+.homePage {
+    margin-top: 4.5rem;
 }
 
 .loadingScreen img {
-  max-width: 95%;
-  border-radius: 30rem;
+    max-width: 95%;
+    border-radius: 30rem;
 }
 
 /* ~~~~~~~~~~~~~ Error Screen ~~~~~~~~~~~~~ */
-.errorModal{
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.623);
-  display: none;
+.errorModal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.623);
+    display: none;
 }
-.showError{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.showError {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.errorScreen{
-  background-color: grey;
-  position: absolute;
-  padding: 1rem;
-  justify-self: center;
+.errorScreen {
+    background-color: grey;
+    position: absolute;
+    padding: 1rem;
+    justify-self: center;
 }
-.errorScreen h1{
-  color: white;
-  text-shadow: red 1px 1px;
-  margin-bottom: .5rem;
+.errorScreen h1 {
+    color: white;
+    text-shadow: red 1px 1px;
+    margin-bottom: 0.5rem;
 }
 .errorScreen h2 {
-  color: white;
-  margin-bottom: 1rem;
+    color: white;
+    margin-bottom: 1rem;
 }
 /* ~~~~~~~~~~~~~~~~Navigation~~~~~~~~~~~~~~~~~~ */
-nav{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: black;
-  box-shadow:  2px 5px 0 rgba(0,0,0,0.16);
-  padding: .5rem 1rem;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    box-shadow: 2px 5px 0 rgba(0, 0, 0, 0.16);
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 }
-#navbar{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-self: flex-start;
-  position: fixed;
-  right: 0;
-  top: 3.9rem;
-  background-color: rgb(87, 87, 87);
-  box-shadow:  2px 4px 0 rgba(0,0,0,0.10);
-  padding-right: 2rem; 
-  padding-top: 1rem;
-  padding: 1rem 5rem 0rem 1rem;
-  transition: 1s ease-in-out;
+#navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-self: flex-start;
+    position: fixed;
+    right: 0;
+    top: 3.9rem;
+    background-color: rgb(87, 87, 87);
+    box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.1);
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding: 1rem 5rem 0rem 1rem;
+    transition: 1s ease-in-out;
 }
-nav h1 a{
-  text-decoration: none;
-  font-family: var(--title-font);
-  color: var(--lightpurple-color);
-  text-shadow: 1px 1px 2px green;
-  font-size: 2rem;
+nav h1 a {
+    text-decoration: none;
+    font-family: var(--title-font);
+    color: var(--lightpurple-color);
+    text-shadow: 1px 1px 2px green;
+    font-size: 2rem;
 }
-#navbar li{
-  list-style: none;
-  position: relative;
-  margin-bottom: 1.5rem;
+#navbar li {
+    list-style: none;
+    position: relative;
+    margin-bottom: 1.5rem;
 }
-#navbar a{
-  text-decoration: none;
-  font-size: 1.5rem;
-  color: white;
-  transition: 0.3s ease-in-out;
+#navbar a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    transition: 0.3s ease-in-out;
 }
-#navbar a:hover{
-  color: var(--lightpurple-color);
-  text-decoration: underline;
-  text-underline-offset: .6rem;
-  font-size: 1.6rem;
+#navbar a:hover {
+    color: var(--lightpurple-color);
+    text-decoration: underline;
+    text-underline-offset: 0.6rem;
+    font-size: 1.6rem;
 }
 .mobile {
-  background-color: inherit;
-  width: 1.5rem;
+    background-color: inherit;
+    width: 1.5rem;
 }
 .mobile button {
-  background-color: inherit;
-  color: white;
+    background-color: inherit;
+    color: white;
 }
 .hamburgerIcon {
-  font-size: 2rem;
-  color: white;
+    font-size: 2rem;
+    color: white;
 }
-.closeIcon{
-  color: var(--lightblack-color);
-  font-size: 1.7rem;
-  font-family:'Lucida Sans';
+.closeIcon {
+    color: var(--lightblack-color);
+    font-size: 1.7rem;
+    font-family: 'Lucida Sans';
 }
-.logo{
-  max-width: 2.5rem;
+.logo {
+    max-width: 2.5rem;
 }
-.hidden{
-  display: none;
+.hidden {
+    display: none;
 }
-.offScreen{
-  right: -12rem !important;
+.offScreen {
+    right: -12rem !important;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~~~~~~~~~~~~~~~~Landing Page~~~~~~~~~~~~~~~~~~ */
-.landing h1{
-  margin: 1rem .25rem;
-  font-size: 1.6rem;
+.landing h1 {
+    margin: 1rem 0.25rem;
+    font-size: 1.6rem;
 }
-.landing .title{
-  font-family: var(--title-font);
-  font-size: 3rem;
-  color: var(--lightpurple-color);
-  text-shadow: 1px 1px 2px black;
+.landing .title {
+    font-family: var(--title-font);
+    font-size: 3rem;
+    color: var(--lightpurple-color);
+    text-shadow: 1px 1px 2px black;
 }
-.greeting{
-  font-weight: bold;
-  background-color: white;
-  padding: .5rem;
-  border-radius: 2rem;
-  box-shadow:  2px 4px 0 rgba(0,0,0,0.10);
-  margin-bottom: 1rem;
-  max-width: 50rem;
+.greeting {
+    font-weight: bold;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    max-width: 50rem;
 }
-.actionLinks{
-  display: flex;
-  justify-content: space-around;
-  margin-top: .5rem;
+.actionLinks {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.5rem;
 }
-.logoSection img{
-  max-width: 15rem;
-  margin-bottom: 1rem;
+.logoSection img {
+    max-width: 15rem;
+    margin-bottom: 1rem;
 }
-.landingDescription{
-  display: flex;
-  flex-direction: column;
-  padding: 0rem 2rem;
-  margin-bottom: 1rem;
-  align-items: center;
+.landingDescription {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 2rem;
+    margin-bottom: 1rem;
+    align-items: center;
 }
-.actionLinks button{
-  font-size: 1.3em;
-  padding: .5rem;
-  background-color: var(--lightpurple-color);
-  color: white;
-  border-radius: 1rem;
-  min-width: 7rem;
+.actionLinks button {
+    font-size: 1.3em;
+    padding: 0.5rem;
+    background-color: var(--lightpurple-color);
+    color: white;
+    border-radius: 1rem;
+    min-width: 7rem;
 }
-.actionLinks button:hover{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+.actionLinks button:hover {
+    box-shadow:
+        rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
-.landing p{
-  font-size: 1rem;
-  letter-spacing: .2rem;
+.landing p {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
 }
-.landingCard{
-  border: 1px solid black;
-  background-color: white;
-  max-width: 50rem;
+.landingCard {
+    border: 1px solid black;
+    background-color: white;
+    max-width: 50rem;
 }
-.landingCard h2{
-  background-color: lightgreen;
-  color: white;
-  transition: 800ms ease-in-out;
+.landingCard h2 {
+    background-color: lightgreen;
+    color: white;
+    transition: 800ms ease-in-out;
 }
-.cardDeactivated{
-  max-height: 0;
-  transition: 800ms ease-in-out;
-  overflow: hidden;
+.cardDeactivated {
+    max-height: 0;
+    transition: 800ms ease-in-out;
+    overflow: hidden;
 }
-.cardActivated{
-  max-height: 15rem;
-  transition: 1700ms ease-in-out;
-  overflow: hidden;
-  padding: 1rem;
+.cardActivated {
+    max-height: 15rem;
+    transition: 1700ms ease-in-out;
+    overflow: hidden;
+    padding: 1rem;
 }
-.landingCard:has(.cardActivated) h2{
-  background-color: green;
-  transition: 1700ms ease-in-out;
+.landingCard:has(.cardActivated) h2 {
+    background-color: green;
+    transition: 1700ms ease-in-out;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~~~~~~~~~~~~~~~ Form Formatting ~~~~~~~~~~~~~~~ */
-form{
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 0 2rem;
-  margin-top: 6rem;
-  background-color: rgba(0, 0, 0, 0.116);
-  padding: 1rem;
-  border-radius: .4rem;
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 2rem;
+    margin-top: 6rem;
+    background-color: rgba(0, 0, 0, 0.116);
+    padding: 1rem;
+    border-radius: 0.4rem;
 }
-form label{
-  justify-self: start;
+form label {
+    justify-self: start;
 }
-form input{
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  border-radius: .4rem;
-  text-align: start;
-  padding-left: .2rem;
-  outline: none;
+form input {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.4rem;
+    text-align: start;
+    padding-left: 0.2rem;
+    outline: none;
 }
-form button{
-  font-size: 1.5rem;
-  border-radius: .5rem;
+form button {
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
 }
-form .activated{
-  background-color: var(--lightpurple-color);
-  box-shadow:  2px 3px 4px black;
+form .activated {
+    background-color: var(--lightpurple-color);
+    box-shadow: 2px 3px 4px black;
 }
-form .activated:hover{
-  box-shadow: inset 0px 0px 4px black, 0px 0px 5px black;
+form .activated:hover {
+    box-shadow:
+        inset 0px 0px 4px black,
+        0px 0px 5px black;
 }
-.finePrint{
-  font-size: .7rem;
-  font-weight: bold;
-  justify-self: start;
-  color: rgb(163, 0, 0);
-  margin: .5rem;
+.finePrint {
+    font-size: 0.7rem;
+    font-weight: bold;
+    justify-self: start;
+    color: rgb(163, 0, 0);
+    margin: 0.5rem;
 }
-.same{
-  border: 2px solid green;
+.same {
+    border: 2px solid green;
 }
-.different{
-  border: 2px solid red;
+.different {
+    border: 2px solid red;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~~~~~~~~~~~~~~~ Login Page ~~~~~~~~~~~~~~~~~ */
-.loginPage h2{
-  margin-bottom: 1rem;
+.loginPage h2 {
+    margin-bottom: 1rem;
 }
-.forgotLink{
-  margin-top: .5rem;
-  justify-self: end;
-  text-decoration: none;
-  color: white;
-  background-color: grey;
-  border-radius: 1rem;
-  padding: .2rem .5rem;
+.forgotLink {
+    margin-top: 0.5rem;
+    justify-self: end;
+    text-decoration: none;
+    color: white;
+    background-color: grey;
+    border-radius: 1rem;
+    padding: 0.2rem 0.5rem;
 }
-.forgotLink:hover{
-  background-color: var(--lightpurple-color);
+.forgotLink:hover {
+    background-color: var(--lightpurple-color);
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /*  Laptops and small monitors */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media (min-width: 57rem) {
- #navbar{
-  width: 22rem;
-  padding-left: 2rem;
- }
- .offScreen{
-  right: -29rem !important;
-  }
-  #navbar a{
-    font-size: 1.8rem;
-  }
-  #navbar a:hover{
-    text-underline-offset: 1rem;
-    font-size: 2rem;
-  }
+    #navbar {
+        width: 22rem;
+        padding-left: 2rem;
+    }
+    .offScreen {
+        right: -29rem !important;
+    }
+    #navbar a {
+        font-size: 1.8rem;
+    }
+    #navbar a:hover {
+        text-underline-offset: 1rem;
+        font-size: 2rem;
+    }
 
-  /* Sign Up Page */
-  .registration, .loginPage {
-    display: flex;
-    justify-content: center;
-  }
-  form{
-    grid-template-columns: 1fr 3fr;
-    margin-top: .75rem;
-  }
-  form h2, .finePrint, form button, form h2, form button, .forgotLink{
-    grid-column: span 2;
-  }
-  form input{
-    margin-left: .5rem;
-  }
-  form label{
-    align-self: flex-start;
-  }
-  .forgotLink{
-    margin-top: 1rem;
-  }
-
+    /* Sign Up Page */
+    .registration,
+    .loginPage {
+        display: flex;
+        justify-content: center;
+    }
+    form {
+        grid-template-columns: 1fr 3fr;
+        margin-top: 0.75rem;
+    }
+    form h2,
+    .finePrint,
+    form button,
+    form h2,
+    form button,
+    .forgotLink {
+        grid-column: span 2;
+    }
+    form input {
+        margin-left: 0.5rem;
+    }
+    form label {
+        align-self: flex-start;
+    }
+    .forgotLink {
+        margin-top: 1rem;
+    }
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* Large Screens */
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media (min-width: 95rem) {
-  
 }

@@ -1,1 +1,1 @@
-export default "https://speedy-checkin-backend.onrender.com"
+export default 'https://speedy-checkin-backend.onrender.com'
