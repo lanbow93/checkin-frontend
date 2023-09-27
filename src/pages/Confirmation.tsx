@@ -8,7 +8,6 @@ interface confirmationState {
 
 function Confirmation() {
     const state: confirmationState = useLocation().state
-    console.log(state)
     return (
         <div className="confirmation">
             <div className="confirmationBody">

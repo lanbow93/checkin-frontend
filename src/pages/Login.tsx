@@ -70,7 +70,7 @@ function Login() {
             {isLoading ? (
                 <LoadingScreen />
             ) : (
-                <form onSubmit={(event) => handleSubmission(event)}>
+                <form onSubmit={handleSubmission}>
                     <h2>Speedy Login</h2>
                     <label>Username:</label>
                     <input
@@ -82,6 +82,7 @@ function Login() {
                     />
                     <label>Password:</label>
                     <input
+                        required
                         type="password"
                         name="password"
                         value={userData.password}
