@@ -6,10 +6,9 @@ import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
     const navigate = useNavigate()
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
     const [userData, setUserData] = useState({
-        name: '',
+        firstName: '',
+        lastName: '',
         username: '',
         email: '',
         password: '',
@@ -25,15 +24,6 @@ function SignUp() {
         errorStatus: '',
         errorAdditional: '',
     })
-
-    // Used to combine first and last name for form submission
-    const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
-        event.target.name === 'firstName'
-            ? setFirstName(event.target.value)
-            : setLastName(event.target.value)
-        setUserData({ ...userData, name: `${firstName} ${lastName}` })
-    }
-
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setUserData({ ...userData, [event.target.name]: event.target.value })
     }
@@ -45,12 +35,19 @@ function SignUp() {
         setIsLoading(true)
 
         try {
+            const user = {
+                name: userData.firstName + " " + userData.lastName,
+                username: userData.username,
+                email: userData.email ,
+                password: userData.password,
+                badgeName: userData.badgeName
+            }
             const response = await fetch(url + '/user/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(userData),
+                body: JSON.stringify(user),
             })
             if (response.ok) {
                 navigate('/confirmation', {
@@ -127,21 +124,25 @@ function SignUp() {
                     <p className="finePrint">* Username 15 Character Limit</p>
                     <label>Username</label>
                     <input
+                        required
                         type="text"
                         name="username"
                         value={userData.username}
-                        onChange={(event) => handleInputChange(event)}
+                        maxLength={15}
+                        onChange={handleInputChange}
                     />
                     <label>Password</label>
                     <input
+                        required
                         type="password"
                         className="passwordRow"
                         name="password"
                         value={userData.password}
-                        onChange={(event) => handleInputChange(event)}
+                        onChange={handleInputChange}
                     />
                     <label>Verify Password</label>
                     <input
+                        required
                         type="password"
                         className={
                             userData.password !== verifyPassword
@@ -160,39 +161,37 @@ function SignUp() {
                     <p className="finePrint">* Badge Name 15 Character Limit</p>
                     <label>First Name</label>
                     <input
+                        required
                         type="text"
                         name="firstName"
-                        value={firstName}
-                        onChange={(event) => handleNameChange(event)}
+                        value={userData.firstName}
+                        onChange={handleInputChange}
                     />
                     <label>Last Name</label>
                     <input
+                        required
                         type="text"
                         name="lastName"
-                        value={lastName}
-                        onChange={(event) => handleNameChange(event)}
+                        value={userData.lastName}
+                        onChange={handleInputChange}
                     />
                     <label>Email</label>
                     <input
+                        required
                         type="email"
                         name="email"
                         value={userData.email}
-                        onChange={(event) => handleInputChange(event)}
+                        onChange={handleInputChange}
                     />
                     <label>Badge Name</label>
                     <input
+                        required
                         type="text"
                         name="badgeName"
                         value={userData.badgeName}
-                        onChange={(event) => handleInputChange(event)}
+                        onChange={handleInputChange}
                     />
-                    {firstName &&
-                    lastName &&
-                    userData.password &&
-                    userData.password === verifyPassword &&
-                    userData.username &&
-                    userData.email &&
-                    userData.badgeName ? (
+                    {userData.password === verifyPassword ? (
                         <button type="submit" className="activated">
                             Register
                         </button>
@@ -201,7 +200,6 @@ function SignUp() {
                             Register
                         </button>
                     )}
-                    <input type="hidden" value={userData.name} name="name" />
                 </form>
             )}
         </div>
