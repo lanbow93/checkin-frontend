@@ -36,11 +36,11 @@ function SignUp() {
 
         try {
             const user = {
-                name: userData.firstName + " " + userData.lastName,
+                name: userData.firstName + ' ' + userData.lastName,
                 username: userData.username,
-                email: userData.email ,
+                email: userData.email,
                 password: userData.password,
-                badgeName: userData.badgeName
+                badgeName: userData.badgeName,
             }
             const response = await fetch(url + '/user/signup', {
                 method: 'POST',
