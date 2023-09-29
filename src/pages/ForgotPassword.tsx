@@ -28,11 +28,8 @@ function ForgotPassword() {
                     onChange={(event) => setConfirmEmail(event.target.value)}
                     onPaste={(event) => event.preventDefault()}
                 />
-                {email === confirmEmail ? (
-                    <button className="activated">Submit</button>
-                ) : (
-                    <button disabled>Submit</button>
-                )}
+                <button className="activated" disabled={email !== confirmEmail}>Submit</button>
+            
             </form>
         </div>
     )
