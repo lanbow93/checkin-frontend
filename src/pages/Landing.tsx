@@ -36,13 +36,13 @@ function Landing() {
                     </div>
                 </div>
 
-                {landingInformationCards.map(card => (
+                {landingInformationCards.map((card) => (
                     <LandingInformationCard
-                    key={card.panelKey}
-                    cardTitle={card.cardTitle}
-                    cardContent={card.cardContent}
-                    isActive={currentActivePanel === card.panelKey}
-                    changeFocus={changeFocus}
+                        key={card.panelKey}
+                        cardTitle={card.cardTitle}
+                        cardContent={card.cardContent}
+                        isActive={currentActivePanel === card.panelKey}
+                        changeFocus={changeFocus}
                     />
                 ))}
             </div>

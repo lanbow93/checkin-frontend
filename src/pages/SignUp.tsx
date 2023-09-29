@@ -67,8 +67,8 @@ function SignUp() {
                     errorMessage: data.status,
                     errorAdditional: data.message,
                 })
-                    setIsModalActive(true)
-                }
+                setIsModalActive(true)
+            }
         } catch (error) {
             console.log({ error })
         } finally {
@@ -160,7 +160,11 @@ function SignUp() {
                         value={userData.badgeName}
                         onChange={handleInputChange}
                     />
-                    <button type="submit" className="activated" disabled={userData.password !== verifyPassword}>
+                    <button
+                        type="submit"
+                        className="activated"
+                        disabled={userData.password !== verifyPassword}
+                    >
                         Register
                     </button>
                 </form>
