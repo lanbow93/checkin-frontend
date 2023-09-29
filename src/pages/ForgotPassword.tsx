@@ -14,18 +14,21 @@ function ForgotPassword() {
                 <h2>Forgot Password</h2>
                 <label>Email</label>
                 <input
+                    required
                     type="text"
                     name="email"
+                    value={email}
                     onChange={(event) => setEmail(event.target.value)}
                 />
                 <label>Confirm Email</label>
                 <input
+                    required
                     name="confirmEmail"
                     type="text"
                     onChange={(event) => setConfirmEmail(event.target.value)}
                     onPaste={(event) => event.preventDefault()}
                 />
-                {email && confirmEmail && email === confirmEmail ? (
+                {email === confirmEmail ? (
                     <button className="activated">Submit</button>
                 ) : (
                     <button disabled>Submit</button>

@@ -60,46 +60,15 @@ function SignUp() {
                 })
             } else {
                 const data = await response.json()
+                console.log(data)
                 // Made to detect errors in backend format
-                if (typeof data.error === 'string') {
-                    setErrorData({
-                        errorStatus: data.error,
-                        errorMessage: data.status,
-                        errorAdditional: data.message,
-                    })
-                    setIsModalActive(true)
-                } else {
-                    // Catching Email and Username Duplicate Mongo Errors
-                    setErrorData({
-                        errorStatus: data.status,
-                        errorMessage: data.message,
-                        errorAdditional: '',
-                    })
-                    if (
-                        data.error.error.code === 11000 &&
-                        data.error.error.keyPattern.username
-                    ) {
-                        setErrorData({
-                            ...errorData,
-                            errorAdditional: 'Username Already Exists',
-                        })
-                    } else if (
-                        data.error.error.code === 11000 &&
-                        data.error.error.keyPattern.email
-                    ) {
-                        setErrorData({
-                            ...errorData,
-                            errorAdditional: 'Email Already Exists',
-                        })
-                    } else {
-                        setErrorData({
-                            ...errorData,
-                            errorAdditional: 'Unknown',
-                        })
-                    }
+                setErrorData({
+                    errorStatus: data.error,
+                    errorMessage: data.status,
+                    errorAdditional: data.message,
+                })
                     setIsModalActive(true)
                 }
-            }
         } catch (error) {
             console.log({ error })
         } finally {
