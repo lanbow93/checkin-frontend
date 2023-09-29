@@ -160,15 +160,9 @@ function SignUp() {
                         value={userData.badgeName}
                         onChange={handleInputChange}
                     />
-                    {userData.password === verifyPassword ? (
-                        <button type="submit" className="activated">
-                            Register
-                        </button>
-                    ) : (
-                        <button type="submit" disabled>
-                            Register
-                        </button>
-                    )}
+                    <button type="submit" className="activated" disabled={userData.password === verifyPassword ? false : true}>
+                        Register
+                    </button>
                 </form>
             )}
         </div>
