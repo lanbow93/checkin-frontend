@@ -30,7 +30,8 @@ html {
 .loginPage,
 .homePage,
 .confirmation,
-.forgotPassword {
+.forgotPassword,
+.passwordReset {
     margin-top: 4.5rem;
 }
 
