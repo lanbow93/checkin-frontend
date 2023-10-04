@@ -14,10 +14,9 @@ function PasswordReset(){
         errorStatus: '',
         errorAdditional: '',
     })
-
     const [resetData, setResetData] = useState({
         username: "",
-        password: ""
+        password: "",
     })
     const [verifyPassword, setVerifyPassword] = useState("")
 
@@ -39,8 +38,8 @@ function PasswordReset(){
             if (response.ok) {
                 navigate('/confirmation', {
                     state: {
-                        header: 'Password Has Been Successfully Updated',
-                        message: `Proceed To The Login Screen`,
+                        header: 'Successfull',
+                        message: `Password Has Been Reset. Proeed To Login Screen`,
                         link: '/login',
                         state: '',
                     },
