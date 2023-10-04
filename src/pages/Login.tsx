@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import ErrorScreen from '../components/ErrorScreen'
 import LoadingScreen from '../components/LoadingScreen'
 import url from '../router/url'
+import { validateNoSpaces } from '../utils/sharedFunctions'
 
 function Login() {
     const [isLoading, setIsLoading] = useState(false)
@@ -53,7 +54,13 @@ function Login() {
     }
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setUserData({ ...userData, [event.target.name]: event.target.value })
+        const { name, value } = event.target
+        // Use the validateNoSpaces function for the username field
+        const validationMessage =
+            name === 'username' ? validateNoSpaces(value) : ''
+        event.target.setCustomValidity(validationMessage)
+
+        setUserData({ ...userData, [name]: value })
     }
 
     return (

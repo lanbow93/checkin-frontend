@@ -3,6 +3,7 @@ import LoadingScreen from '../components/LoadingScreen'
 import url from '../router/url'
 import ErrorScreen from '../components/ErrorScreen'
 import { useNavigate } from 'react-router-dom'
+import { validateNoSpaces } from '../utils/sharedFunctions'
 
 function SignUp() {
     const navigate = useNavigate()
@@ -25,6 +26,11 @@ function SignUp() {
         errorAdditional: '',
     })
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target
+        // Use the validateNoSpaces function for the username field
+        const validationMessage =
+            name === 'username' ? validateNoSpaces(value) : ''
+        event.target.setCustomValidity(validationMessage)
         setUserData({ ...userData, [event.target.name]: event.target.value })
     }
     // Fetch request that allows new user creation and loading screen to be ran until response recveived
