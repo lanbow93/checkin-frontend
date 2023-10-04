@@ -1,11 +1,11 @@
-import { useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
-import url from "../router/url"
-import ErrorScreen from "../components/ErrorScreen"
-import LoadingScreen from "../components/LoadingScreen"
+import { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import url from '../router/url'
+import ErrorScreen from '../components/ErrorScreen'
+import LoadingScreen from '../components/LoadingScreen'
 
-function PasswordReset(){
-    const {id} = useParams()
+function PasswordReset() {
+    const { id } = useParams()
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
     const [isModalActive, setIsModalActive] = useState(false)
@@ -15,10 +15,10 @@ function PasswordReset(){
         errorAdditional: '',
     })
     const [resetData, setResetData] = useState({
-        username: "",
-        password: "",
+        username: '',
+        password: '',
     })
-    const [verifyPassword, setVerifyPassword] = useState("")
+    const [verifyPassword, setVerifyPassword] = useState('')
 
     const handleFormSubmission = async (
         event: React.FormEvent<HTMLFormElement>
@@ -61,7 +61,7 @@ function PasswordReset(){
             setIsLoading(false)
         }
     }
-    return(
+    return (
         <div className="forgotPassword">
             <div className={`errorModal ${isModalActive ? 'showError' : ''}`}>
                 <ErrorScreen
@@ -82,14 +82,24 @@ function PasswordReset(){
                         type="text"
                         name="username"
                         value={resetData.username}
-                        onChange={(event) => setResetData({...resetData, username: event.target.value })}
+                        onChange={(event) =>
+                            setResetData({
+                                ...resetData,
+                                username: event.target.value,
+                            })
+                        }
                     />
                     <label>New Password</label>
                     <input
                         required
                         name="password"
                         type="password"
-                        onChange={(event) => setResetData({...resetData, password: event.target.value })}
+                        onChange={(event) =>
+                            setResetData({
+                                ...resetData,
+                                password: event.target.value,
+                            })
+                        }
                         onPaste={(event) => event.preventDefault()}
                     />
                     <label>Verify Password</label>
@@ -104,7 +114,9 @@ function PasswordReset(){
                                 ? 'same'
                                 : ''
                         }
-                        onChange={(event) => setVerifyPassword(event.target.value)}
+                        onChange={(event) =>
+                            setVerifyPassword(event.target.value)
+                        }
                         onPaste={(event) => event.preventDefault()}
                     />
                     <button
