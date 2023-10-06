@@ -4,6 +4,7 @@ import ErrorScreen from '../components/ErrorScreen'
 import LoadingScreen from '../components/LoadingScreen'
 import url from '../router/url'
 import { validateNoSpaces } from '../utils/sharedFunctions'
+import Navigation from '../components/Navigation'
 
 function Login() {
     const [isLoading, setIsLoading] = useState(false)
@@ -63,7 +64,8 @@ function Login() {
         setUserData({ ...userData, [name]: value })
     }
 
-    return (
+    return (<>
+        <Navigation />
         <div className="loginPage">
             <div className={`errorModal ${isModalActive ? 'showError' : ''}`}>
                 <ErrorScreen
@@ -104,7 +106,7 @@ function Login() {
                 </form>
             )}
         </div>
-    )
+    </>)
 }
 
 export default Login

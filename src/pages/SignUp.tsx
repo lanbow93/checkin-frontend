@@ -4,6 +4,7 @@ import url from '../router/url'
 import ErrorScreen from '../components/ErrorScreen'
 import { useNavigate } from 'react-router-dom'
 import { validateNoSpaces } from '../utils/sharedFunctions'
+import Navigation from '../components/Navigation'
 
 function SignUp() {
     const navigate = useNavigate()
@@ -81,7 +82,8 @@ function SignUp() {
             setIsLoading(false)
         }
     }
-    return (
+    return (<>
+        <Navigation />
         <div className="registration">
             <div className={`errorModal ${isModalActive ? 'showError' : ''}`}>
                 <ErrorScreen
@@ -176,7 +178,7 @@ function SignUp() {
                 </form>
             )}
         </div>
-    )
+        </>)
 }
 
 export default SignUp

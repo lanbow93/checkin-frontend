@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import url from '../router/url'
 import ErrorScreen from '../components/ErrorScreen'
 import LoadingScreen from '../components/LoadingScreen'
+import Navigation from '../components/Navigation'
 
 function ForgotPassword() {
     const navigate = useNavigate()
@@ -57,7 +58,8 @@ function ForgotPassword() {
             setIsLoading(false)
         }
     }
-    return (
+    return (<>
+        <Navigation />
         <div className="forgotPassword">
             <div className={`errorModal ${isModalActive ? 'showError' : ''}`}>
                 <ErrorScreen
@@ -99,7 +101,7 @@ function ForgotPassword() {
                 </form>
             )}
         </div>
-    )
+    </>)
 }
 
 export default ForgotPassword
