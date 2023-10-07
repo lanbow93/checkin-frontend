@@ -12,7 +12,7 @@ function Landing() {
 
     return (
         <>
-            <Navigation />
+            <Navigation link="public" />
             <div className="landing">
                 <h1>
                     Revolutionize Workforce Management with

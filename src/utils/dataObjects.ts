@@ -24,3 +24,17 @@ export const landingInformationCards = [
         panelKey: 'More Info',
     },
 ]
+
+interface MyObject {
+    [key: string]: any
+}
+
+export const navigationOptions: MyObject = {
+    public: [
+        ['/signup', 'Sign Up'],
+        ['/login', 'Login'],
+        ['/', 'About'],
+    ],
+    user: [[]],
+    admin: [[]],
+}

@@ -62,75 +62,79 @@ function PasswordReset() {
             setIsLoading(false)
         }
     }
-    return (<>
-        <Navigation />
-        <div className="forgotPassword">
-            <div className={`errorModal ${isModalActive ? 'showError' : ''}`}>
-                <ErrorScreen
-                    message={errorData.errorMessage}
-                    status={errorData.errorStatus}
-                    error={errorData.errorAdditional}
-                    closeModal={setIsModalActive}
-                />
+    return (
+        <>
+            <Navigation link="public" />
+            <div className="forgotPassword">
+                <div
+                    className={`errorModal ${isModalActive ? 'showError' : ''}`}
+                >
+                    <ErrorScreen
+                        message={errorData.errorMessage}
+                        status={errorData.errorStatus}
+                        error={errorData.errorAdditional}
+                        closeModal={setIsModalActive}
+                    />
+                </div>
+                {isLoading ? (
+                    <LoadingScreen />
+                ) : (
+                    <form onSubmit={handleFormSubmission}>
+                        <h2>Reset Password</h2>
+                        <label>Username</label>
+                        <input
+                            required
+                            type="text"
+                            name="username"
+                            value={resetData.username}
+                            onChange={(event) =>
+                                setResetData({
+                                    ...resetData,
+                                    username: event.target.value,
+                                })
+                            }
+                        />
+                        <label>New Password</label>
+                        <input
+                            required
+                            name="password"
+                            type="password"
+                            onChange={(event) =>
+                                setResetData({
+                                    ...resetData,
+                                    password: event.target.value,
+                                })
+                            }
+                            onPaste={(event) => event.preventDefault()}
+                        />
+                        <label>Verify Password</label>
+                        <input
+                            required
+                            name="verifypassword"
+                            type="password"
+                            className={
+                                resetData.password !== verifyPassword
+                                    ? 'different'
+                                    : verifyPassword && resetData.password
+                                    ? 'same'
+                                    : ''
+                            }
+                            onChange={(event) =>
+                                setVerifyPassword(event.target.value)
+                            }
+                            onPaste={(event) => event.preventDefault()}
+                        />
+                        <button
+                            className="activated"
+                            disabled={resetData.password !== verifyPassword}
+                        >
+                            Submit
+                        </button>
+                    </form>
+                )}
             </div>
-            {isLoading ? (
-                <LoadingScreen />
-            ) : (
-                <form onSubmit={handleFormSubmission}>
-                    <h2>Reset Password</h2>
-                    <label>Username</label>
-                    <input
-                        required
-                        type="text"
-                        name="username"
-                        value={resetData.username}
-                        onChange={(event) =>
-                            setResetData({
-                                ...resetData,
-                                username: event.target.value,
-                            })
-                        }
-                    />
-                    <label>New Password</label>
-                    <input
-                        required
-                        name="password"
-                        type="password"
-                        onChange={(event) =>
-                            setResetData({
-                                ...resetData,
-                                password: event.target.value,
-                            })
-                        }
-                        onPaste={(event) => event.preventDefault()}
-                    />
-                    <label>Verify Password</label>
-                    <input
-                        required
-                        name="verifypassword"
-                        type="password"
-                        className={
-                            resetData.password !== verifyPassword
-                                ? 'different'
-                                : verifyPassword && resetData.password
-                                ? 'same'
-                                : ''
-                        }
-                        onChange={(event) =>
-                            setVerifyPassword(event.target.value)
-                        }
-                        onPaste={(event) => event.preventDefault()}
-                    />
-                    <button
-                        className="activated"
-                        disabled={resetData.password !== verifyPassword}
-                    >
-                        Submit
-                    </button>
-                </form>
-            )}
-        </div>
-        </>)
+        </>
+    )
 }
 
 export default PasswordReset

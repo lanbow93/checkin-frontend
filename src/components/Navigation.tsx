@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import checkLogo from '../assets/checkmark.png'
-function Navigation(props: any) {
+import { navigationOptions } from '../utils/dataObjects'
+
+interface navigationProps {
+    link: string
+}
+function Navigation(props: navigationProps) {
     const [isEnabled, setIsEnabled] = useState(false)
     const handleMenuChange = () => {
         if (isEnabled) {
@@ -23,15 +28,13 @@ function Navigation(props: any) {
                     id="navbar"
                     className={`${isEnabled ? 'onScreen' : 'offScreen'}`}
                 >
-                    <li>
-                        <Link to={'/signup'}>Sign Up</Link>
-                    </li>
-                    <li>
-                        <Link to={'/login'}>Login</Link>
-                    </li>
-                    <li>
-                        <Link to={'/'}>About</Link>
-                    </li>
+                    {navigationOptions[props.link].map(
+                        (linkPair: [string, string]) => (
+                            <li>
+                                <Link to={linkPair[0]}>{linkPair[1]}</Link>
+                            </li>
+                        )
+                    )}
                 </ul>
                 <div className="mobile">
                     <button

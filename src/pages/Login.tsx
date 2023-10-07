@@ -64,49 +64,53 @@ function Login() {
         setUserData({ ...userData, [name]: value })
     }
 
-    return (<>
-        <Navigation />
-        <div className="loginPage">
-            <div className={`errorModal ${isModalActive ? 'showError' : ''}`}>
-                <ErrorScreen
-                    message={errorData.errorMessage}
-                    status={errorData.errorStatus}
-                    error={errorData.errorAdditional}
-                    closeModal={setIsModalActive}
-                />
-            </div>
+    return (
+        <>
+            <Navigation link="public" />
+            <div className="loginPage">
+                <div
+                    className={`errorModal ${isModalActive ? 'showError' : ''}`}
+                >
+                    <ErrorScreen
+                        message={errorData.errorMessage}
+                        status={errorData.errorStatus}
+                        error={errorData.errorAdditional}
+                        closeModal={setIsModalActive}
+                    />
+                </div>
 
-            {isLoading ? (
-                <LoadingScreen />
-            ) : (
-                <form onSubmit={handleSubmission}>
-                    <h2>Speedy Login</h2>
-                    <label>Username:</label>
-                    <input
-                        required
-                        type="text"
-                        name="username"
-                        value={userData.username}
-                        onChange={handleInputChange}
-                    />
-                    <label>Password:</label>
-                    <input
-                        required
-                        type="password"
-                        name="password"
-                        value={userData.password}
-                        onChange={handleInputChange}
-                    />
-                    <button type="submit" className="activated">
-                        Submit
-                    </button>
-                    <Link to="/forgotpassword" className="forgotLink">
-                        Forgot Password
-                    </Link>
-                </form>
-            )}
-        </div>
-    </>)
+                {isLoading ? (
+                    <LoadingScreen />
+                ) : (
+                    <form onSubmit={handleSubmission}>
+                        <h2>Speedy Login</h2>
+                        <label>Username:</label>
+                        <input
+                            required
+                            type="text"
+                            name="username"
+                            value={userData.username}
+                            onChange={handleInputChange}
+                        />
+                        <label>Password:</label>
+                        <input
+                            required
+                            type="password"
+                            name="password"
+                            value={userData.password}
+                            onChange={handleInputChange}
+                        />
+                        <button type="submit" className="activated">
+                            Submit
+                        </button>
+                        <Link to="/forgotpassword" className="forgotLink">
+                            Forgot Password
+                        </Link>
+                    </form>
+                )}
+            </div>
+        </>
+    )
 }
 
 export default Login

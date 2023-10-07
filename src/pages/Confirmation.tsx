@@ -9,18 +9,20 @@ interface confirmationState {
 
 function Confirmation() {
     const state: confirmationState = useLocation().state
-    return (<>
-        <Navigation />
-        <div className="confirmation">
-            <div className="confirmationBody">
-                <h1>{state.header}</h1>
-                <p>{state.message}</p>
-                <Link to={`${state.link}`} state={state.data}>
-                    Continue
-                </Link>
+    return (
+        <>
+            <Navigation link="public" />
+            <div className="confirmation">
+                <div className="confirmationBody">
+                    <h1>{state.header}</h1>
+                    <p>{state.message}</p>
+                    <Link to={`${state.link}`} state={state.data}>
+                        Continue
+                    </Link>
+                </div>
             </div>
-        </div>
-    </>)
+        </>
+    )
 }
 
 export default Confirmation

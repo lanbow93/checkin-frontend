@@ -82,103 +82,111 @@ function SignUp() {
             setIsLoading(false)
         }
     }
-    return (<>
-        <Navigation />
-        <div className="registration">
-            <div className={`errorModal ${isModalActive ? 'showError' : ''}`}>
-                <ErrorScreen
-                    message={errorData.errorMessage}
-                    status={errorData.errorStatus}
-                    error={errorData.errorAdditional}
-                    closeModal={setIsModalActive}
-                />
+    return (
+        <>
+            <Navigation link="public" />
+            <div className="registration">
+                <div
+                    className={`errorModal ${isModalActive ? 'showError' : ''}`}
+                >
+                    <ErrorScreen
+                        message={errorData.errorMessage}
+                        status={errorData.errorStatus}
+                        error={errorData.errorAdditional}
+                        closeModal={setIsModalActive}
+                    />
+                </div>
+                {isLoading ? (
+                    <LoadingScreen />
+                ) : (
+                    <form onSubmit={handleFormSubmission}>
+                        <h2>Sign Up Page</h2>
+                        <p className="finePrint">
+                            * Username 15 Character Limit
+                        </p>
+                        <label>Username</label>
+                        <input
+                            required
+                            type="text"
+                            name="username"
+                            value={userData.username}
+                            maxLength={15}
+                            onChange={handleInputChange}
+                        />
+                        <label>Password</label>
+                        <input
+                            required
+                            type="password"
+                            className="passwordRow"
+                            name="password"
+                            value={userData.password}
+                            onChange={handleInputChange}
+                        />
+                        <label>Verify Password</label>
+                        <input
+                            required
+                            type="password"
+                            className={
+                                userData.password !== verifyPassword
+                                    ? 'different'
+                                    : verifyPassword && userData.password
+                                    ? 'same'
+                                    : ''
+                            }
+                            name="verifypassword"
+                            value={verifyPassword}
+                            onChange={(event) =>
+                                setVerifyPassword(event.target.value)
+                            }
+                        />
+                        <h2>Account Information</h2>
+                        <p className="finePrint">
+                            * Badge Name 15 Character Limit
+                        </p>
+                        <label>First Name</label>
+                        <input
+                            required
+                            type="text"
+                            name="firstName"
+                            value={userData.firstName}
+                            onChange={handleInputChange}
+                        />
+                        <label>Last Name</label>
+                        <input
+                            required
+                            type="text"
+                            name="lastName"
+                            value={userData.lastName}
+                            onChange={handleInputChange}
+                        />
+                        <label>Email</label>
+                        <input
+                            required
+                            type="email"
+                            name="email"
+                            value={userData.email}
+                            onChange={handleInputChange}
+                        />
+                        <label>Badge Name</label>
+                        <input
+                            required
+                            type="text"
+                            name="badgeName"
+                            value={userData.badgeName}
+                            onChange={handleInputChange}
+                        />
+                        <button
+                            type="submit"
+                            className="activated"
+                            disabled={userData.password !== verifyPassword}
+                        >
+                            Register
+                        </button>
+                    </form>
+                )}
             </div>
-            {isLoading ? (
-                <LoadingScreen />
-            ) : (
-                <form onSubmit={handleFormSubmission}>
-                    <h2>Sign Up Page</h2>
-                    <p className="finePrint">* Username 15 Character Limit</p>
-                    <label>Username</label>
-                    <input
-                        required
-                        type="text"
-                        name="username"
-                        value={userData.username}
-                        maxLength={15}
-                        onChange={handleInputChange}
-                    />
-                    <label>Password</label>
-                    <input
-                        required
-                        type="password"
-                        className="passwordRow"
-                        name="password"
-                        value={userData.password}
-                        onChange={handleInputChange}
-                    />
-                    <label>Verify Password</label>
-                    <input
-                        required
-                        type="password"
-                        className={
-                            userData.password !== verifyPassword
-                                ? 'different'
-                                : verifyPassword && userData.password
-                                ? 'same'
-                                : ''
-                        }
-                        name="verifypassword"
-                        value={verifyPassword}
-                        onChange={(event) =>
-                            setVerifyPassword(event.target.value)
-                        }
-                    />
-                    <h2>Account Information</h2>
-                    <p className="finePrint">* Badge Name 15 Character Limit</p>
-                    <label>First Name</label>
-                    <input
-                        required
-                        type="text"
-                        name="firstName"
-                        value={userData.firstName}
-                        onChange={handleInputChange}
-                    />
-                    <label>Last Name</label>
-                    <input
-                        required
-                        type="text"
-                        name="lastName"
-                        value={userData.lastName}
-                        onChange={handleInputChange}
-                    />
-                    <label>Email</label>
-                    <input
-                        required
-                        type="email"
-                        name="email"
-                        value={userData.email}
-                        onChange={handleInputChange}
-                    />
-                    <label>Badge Name</label>
-                    <input
-                        required
-                        type="text"
-                        name="badgeName"
-                        value={userData.badgeName}
-                        onChange={handleInputChange}
-                    />
-                    <button
-                        type="submit"
-                        className="activated"
-                        disabled={userData.password !== verifyPassword}
-                    >
-                        Register
-                    </button>
-                </form>
-            )}
-        </div>
-        </>)
+        </>
+    )
 }
 
 export default SignUp
