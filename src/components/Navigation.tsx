@@ -30,7 +30,7 @@ function Navigation(props: navigationProps) {
                 >
                     {navigationOptions[props.link].map(
                         (linkPair: [string, string]) => (
-                            <li>
+                            <li key={linkPair[0] + linkPair[1]}>
                                 <Link to={linkPair[0]}>{linkPair[1]}</Link>
                             </li>
                         )
