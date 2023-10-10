@@ -35,6 +35,8 @@ export const navigationOptions: MyObject = {
         ['/login', 'Login'],
         ['/', 'About'],
     ],
-    user: [[]],
-    admin: [[]],
+    user: [['/test', "User"]],
+    groupAdmin: [['/test', "Group Admin"]],
+    scheduleAdmin: [['/test', "Schedule Admin"]],
+    siteAdmin: [['/test', "Site Admin"]]
 }
