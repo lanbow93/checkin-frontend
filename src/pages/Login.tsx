@@ -34,9 +34,10 @@ function Login() {
                 credentials: 'include',
                 body: JSON.stringify(userData),
             })
-            const jsonResponse = await response.json()
-            sessionStorage.setItem('account', JSON.stringify(jsonResponse.data))
+            
             if (response.ok) {
+                const jsonResponse = await response.json()
+                sessionStorage.setItem('account', JSON.stringify(jsonResponse.data))
                 navigate('/home')
             } else {
                 const data = await response.json()
