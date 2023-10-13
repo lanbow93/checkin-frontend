@@ -144,10 +144,9 @@ nav {
     top: 3.9rem;
     background-color: rgb(87, 87, 87);
     box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.1);
-    padding-right: 2rem;
-    padding-top: 1rem;
     padding: 1rem 5rem 0rem 1rem;
     transition: 1s ease-in-out;
+    width: 10rem;
 }
 nav h1 a {
     text-decoration: none;
@@ -155,17 +154,21 @@ nav h1 a {
     color: var(--lightpurple-color);
     text-shadow: 1px 1px 2px green;
     font-size: 2rem;
+
 }
 #navbar li {
     list-style: none;
     position: relative;
+    width: 13rem;
     margin-bottom: 1.5rem;
+    
 }
 #navbar a {
     text-decoration: none;
     font-size: 1.5rem;
     color: white;
     transition: 0.3s ease-in-out;
+    
 }
 #navbar a:hover {
     color: var(--lightpurple-color);
@@ -197,7 +200,7 @@ nav h1 a {
     display: none;
 }
 .offScreen {
-    right: -12rem !important;
+    right: -16rem !important;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* ~~~~~~~~~~~~~~~~Landing Page~~~~~~~~~~~~~~~~~~ */
@@ -349,6 +352,54 @@ form .activated:hover {
 }
 .forgotLink:hover {
     background-color: var(--lightpurple-color);
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~ Home Page ~~~~~~~~~~~~~~~~~ */
+.homePage {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homePage .assignment {
+    margin-top: 2rem;
+    background-color: rgba(0, 0, 0, 0.116);
+    margin: 2rem 0rem;
+    border-radius: 0.4rem;
+    width: 100%;
+    max-width: 55rem;
+    padding: 2rem 0;
+}
+.homePage p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+.spacer {
+    margin-bottom: 2rem;
+}
+.imitationButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+
+    width: 100%;
+    max-width: 55rem;
+}
+.imitationButtons a {
+    text-decoration: none;
+    font-size: 1;
+    border-radius: 0.5rem;
+    background-color: var(--lightpurple-color);
+    box-shadow: 2px 3px 4px black;
+    color: white;
+    padding: 0.25rem 0.5rem;
+}
+
+.imitationButtons a:hover {
+    box-shadow:
+        rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

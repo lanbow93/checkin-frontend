@@ -1,3 +1,6 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+
 export const landingInformationCards = [
     {
         cardTitle: 'About',
@@ -35,8 +38,31 @@ export const navigationOptions: MyObject = {
         ['/login', 'Login'],
         ['/', 'About'],
     ],
-    user: [['/test', "User"]],
-    groupAdmin: [['/test', "Group Admin"]],
-    scheduleAdmin: [['/test', "Schedule Admin"]],
-    siteAdmin: [['/test', "Site Admin"]]
+    user: [['/test', 'User']],
+    groupAdmin: [['/test', 'Group Admin']],
+    scheduleAdmin: [['/test', 'Schedule Admin']],
+    siteAdmin: [['/test', 'Site Admin']],
+}
+
+export const homeScreenButtons = {
+    groupAdmin: [
+        { link: '/mygroups', text: 'Groups' },
+        { link: '/myschedules', text: 'Schedules' },
+        { link: '/myattendance', text: 'Attendance' },
+    ],
+    scheduleAdmin: [
+        { link: '/mygroups', text: 'Groups' },
+        { link: '/myschedules', text: 'Schedules' },
+        { link: '/myattendance', text: 'Attendance' },
+    ],
+    siteAdmin: [
+        { link: '/mygroups', text: 'Groups' },
+        { link: '/myschedules', text: 'Schedules' },
+        { link: '/myattendance', text: 'Attendance' },
+    ],
+    user: [
+        { link: '/mygroups', text: 'Groups' },
+        { link: '/myschedules', text: 'Schedules' },
+        { link: '/myattendance', text: 'Attendance' },
+    ],
 }

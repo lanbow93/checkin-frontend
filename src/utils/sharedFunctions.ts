@@ -1,4 +1,4 @@
-import { IAccount } from "./sharedTypes"
+import { IAccount } from './sharedTypes'
 
 export const validateNoSpaces = (value: string) => {
     // Regex to check if value has spaces
@@ -11,12 +11,12 @@ export const validateNoSpaces = (value: string) => {
 
 export const determineUserStatus = (account: IAccount) => {
     if (account.isSiteAdmin) {
-        return "siteAdmin"
+        return 'siteAdmin'
     } else if (account.isScheduleAdmin) {
-        return "scheduleAdmin"
+        return 'scheduleAdmin'
     } else if (account.isGroupAdmin) {
-        return "groupAdmin"
+        return 'groupAdmin'
     } else {
-        return "user"
+        return 'user'
     }
 }
