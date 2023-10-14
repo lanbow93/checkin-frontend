@@ -39,8 +39,9 @@ function PasswordReset() {
             if (response.ok) {
                 navigate('/confirmation', {
                     state: {
-                        header: 'Successfull',
+                        header: 'Successful',
                         message: `Password Has Been Reset. Proeed To Login Screen`,
+                        navStatus: 'public',
                         link: '/login',
                         state: '',
                     },

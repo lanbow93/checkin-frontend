@@ -38,10 +38,10 @@ export const navigationOptions: MyObject = {
         ['/login', 'Login'],
         ['/', 'About'],
     ],
-    user: [['/test', 'User']],
-    groupAdmin: [['/test', 'Group Admin']],
-    scheduleAdmin: [['/test', 'Schedule Admin']],
-    siteAdmin: [['/test', 'Site Admin']],
+    user: [['/test', 'User'], ['/logout', 'Log Out']],
+    groupAdmin: [['/test', 'Group Admin'], ['/logout', 'Log Out']],
+    scheduleAdmin: [['/test', 'Schedule Admin'], ['/logout', 'Log Out']],
+    siteAdmin: [['/test', 'Site Admin'], ['/logout', 'Log Out']],
 }
 
 export const homeScreenButtons = {

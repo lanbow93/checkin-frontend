@@ -36,6 +36,7 @@ function ForgotPassword() {
                 navigate('/confirmation', {
                     state: {
                         header: 'Password Reset Email Sent',
+                        navStatus: 'public',
                         message: `Email has been sent to ${email}. Check your email for further directions`,
                         link: '/login',
                         state: '',

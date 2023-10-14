@@ -38,7 +38,7 @@ function HomePage() {
                         closeModal={setIsModalActive}
                     />
                 </div>
-                
+
                 <h1>Hello, {account.badgeName}!</h1>
                 <h2>Welcome Back</h2>
                 <div className="assignment">
@@ -52,7 +52,6 @@ function HomePage() {
                         <Link to={element.link}>{element.text}</Link>
                     ))}
                 </div>
-                
             </div>
         </>
     )
