@@ -11,6 +11,8 @@ import HomePage from '../pages/HomePage'
 import ForgotPassword from '../pages/ForgotPassword'
 import Confirmation from '../pages/Confirmation'
 import PasswordReset from '../pages/PasswordReset'
+import { Logout } from '../pages/Logout'
+
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,6 +24,7 @@ const router = createBrowserRouter(
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/forgotpassword/:id" element={<PasswordReset />} />
             <Route path="/confirmation" element={<Confirmation />} />
+            <Route path='/logout' element={<Logout />} />
         </Route>
     )
 )
