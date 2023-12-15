@@ -1,24 +1,57 @@
-import LandingInformationCard from "../components/LandingInformationCards"
-import speedyLogo from "../assets/speedyLogo.png"
+import LandingInformationCard from '../components/LandingInformationCards'
+import speedyLogo from '../assets/speedyLogo.png'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { landingInformationCards } from '../utils/dataObjects'
+import Navigation from '../components/Navigation'
+function Landing() {
+    const [currentActivePanel, setCurrentActivePanel] = useState('about')
+    const changeFocus = ({ innerText }: { innerText: string }) => {
+        setCurrentActivePanel(innerText)
+    }
 
-function Landing(){
-    return <div className="landing">
-    <h1>Revolutionize Workforce Management with<br /><span className="title">Speedy Check-In</span></h1>
+    return (
+        <>
+            <Navigation link="public" />
+            <div className="landing">
+                <h1>
+                    Revolutionize Workforce Management with
+                    <br />
+                    <span className="title">Speedy Check-In</span>
+                </h1>
 
-    <div className="landingDescription">
-        <div className="greeting">
-            <p>Welcome to Speedy Check-In, your comprehensive solution for efficient workforce management!</p>
-        </div>
-        <div className="logoSection">
-            <img src={speedyLogo} alt="Speedy Checkin Logo" />
-        </div>
-        <LandingInformationCard cardTitle="About" cardContent="Our web application simplifies the entire process, allowing managers to effortlessly create, enroll, assign groups, and set schedules."/>
-        <LandingInformationCard cardTitle="How" cardContent="With the ability to generate QR codes, managers can streamline check-in procedures."/>
-        <LandingInformationCard cardTitle="Breakdown" cardContent="When users scan the QR code, it not only validates their presence but also records their punch-in and out times, ensuring precise attendance tracking."/>
-        <LandingInformationCard cardTitle="More Info" cardContent="Additionally, users can conveniently access their schedules and view assigned tasks, along with the responsible manager's details. Experience the future of workforce management with Speedy Check-In today!"/>
-    </div>
+                <div className="landingDescription">
+                    <div className="logoSection">
+                        <img src={speedyLogo} alt="Speedy Checkin Logo" />
+                    </div>
+                    <div className="greeting">
+                        <p>
+                            Welcome to Speedy Check-In, your comprehensive
+                            solution for efficient workforce management!
+                        </p>
+                        <div className="actionLinks">
+                            <Link to="/login">
+                                <button>Login</button>
+                            </Link>
+                            <Link to={'/signup'}>
+                                <button>Sign-Up</button>
+                            </Link>
+                        </div>
+                    </div>
 
-    </div>
+                    {landingInformationCards.map((card) => (
+                        <LandingInformationCard
+                            key={card.panelKey}
+                            cardTitle={card.cardTitle}
+                            cardContent={card.cardContent}
+                            isActive={currentActivePanel === card.panelKey}
+                            changeFocus={changeFocus}
+                        />
+                    ))}
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default Landing
